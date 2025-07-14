@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root { /* Base Settings */
+    --bg: #fff;
+    --bg-A: #fafafa;
+    --fg-A: #111;
+    --fg-B: #333;
+    --mid-grey: #bbb; 
+    --button-hover: #2b6de9;
+    --button-color: #0056b3;
+} /* Defining color scheme */
+
+* {
+    margin: 0rem; 
+    padding: 0rem;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+    background: var(--bg);
+    line-height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header-logo {
+    width: 15rem;
+    height: auto;
+    display: block;
+    margin: 5rem auto;
+} /* Centering the logo */
+
+p {
+    color: var(--fg-B);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9rem;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#copy {
+    color: var(--fg-B);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75rem;
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: var(--fg-A);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+#present, #multiplierSelect, button {
+    display: block;
+    align: center; 
+    margin: 1.5rem auto;
+}
+
+#multiplierSelect, #present {
+    width: 15rem;
+    height: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--fg-A);
+    background-color: var(--bg-A);
+    border: 1px solid var(--mid-grey);
+    border-radius: 0.5rem;
+    text-align: center;
+      -webkit-appearance: none;
+       -moz-appearance: textfield;
+} /* Styling the dropdown */
+
+#result {
+    text-align: center; 
+    margin: 2rem auto;
+}
+
+#tagline {
+    margin-bottom: 2rem;
+    text-align: center;
+    margin-left: 5%; 
+    margin-right: 5%;
+}
+
+footer {
+    border-top: var(--mid-grey) solid 1px; 
+    margin-top: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: var(--bg-A);
+}
+
+#copyright {
+    margin-top: 2rem;
+    font-size: .85rem;
+}
+
+button {
+    color: var(--bg);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--button-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 3rem; 
+    transition: all .3s;
+}
+
+button:hover {background-color: var(--button-hover);}
+button i, button i:hover{ 
+  background-color: inherit; 
+  transition: all .3s;
+}
+
+a {
+    color: var(--button-color);
+    text-decoration: none;
+    transition: all .3s;
+}
+
+a:hover {
+    color: var(--button-hover);
+    text-decoration: underline 2px solid var(--button-hover);
+    transition: all .3s;
+}

@@ -1,71 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-9414946309586484">
-  <img src="/wonder-8/img/w8-dark.png" alt="W8 Logo" style="width: 300px; height: auto;">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-9414946309586484" />
+  <link rel="stylesheet" href="/style.css" />
   <title>W8 - Potential Lost to Compound Growth Calculator</title>
 </head>
+
 <body>
-  <h2>The World's Ulimate Bad Spending Habit Breaker</h2>
-  <p>Tired of spending that $10 bucks on a cheese-burger for no reason? Or $4 bucks on the white monster, or fancy coffee? The W8 calculator shows you precisely how much that habit is costing you.</p>
+  <header>
+    <img src="/src/img/w8-dark.png" alt="W8 Logo" class="header-logo" />
+  </header>
+
+  <p id="tagline">
+    Tired of dropping $10 on a cheeseburger for no good reason? Or $4 on a White Monster or that fancy coffee?<br>
+    The W8 Calculator shows you exactly how much those little habits are costing you—day by day, month by month, year by year.
+  </p>
+
   <form id="calcForm">
-    <label>
+    <label class="currency">
       <h3>How much are you spending?</h3>
-      <input type="number" id="present" step="0.01" required>
+      <input type="number" id="present" step="0.01" min="0" required />
     </label>
+
     <label>
-  <h4>Habit Frequency</h4>
-  <select id="multiplierSelect">
-    <option value="365">Daily</option>
-    <option value="178">Every other day</option>
-    <option value="52">Weekly</option>
-    <option value="12">Monthly</option>
-  </select>
-</label>
+      <h3>How often?</h3>
+      <select id="multiplierSelect" required>
+        <option value="365">Daily</option>
+        <option value="178">Every other day</option>
+        <option value="52">Weekly</option>
+        <option value="12">Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+
     <button type="submit">Calculate</button>
   </form>
 
   <p id="result"></p>
 
-<script>
-  const RATE = 0.08262;
+  <footer>
+    <p id="copy">
+      The W8 (Wonder 8) Calculator assumes the user input represents a habitual, unnecessary spending behavior. It calculates the true cost of this habit by multiplying the entered amount by a frequency: daily, every other day, weekly, monthly, or annually. Then, it projects how much that money could have grown if invested instead. W8 bases its projections on the <a href="https://financeband.com/what-is-the-average-return-on-stocks-over-30-years" target="_blank" rel="noopener">historical performance</a> of the S&P 500, which returned an average of 10.985% annually over the 30 years leading up to December 2024—or 8.262% annually after inflation. These calculations assume dividends are automatically reinvested. All investment projections in W8 use compound interest at an annual rate of 8.262%, providing a realistic, inflation-adjusted estimate of opportunity cost.
+    </p>
+    <p id="copyright">
+      &copy;<script>document.write(new Date().getFullYear())</script>,
+      <i><a href="https://makc.co" target="_blank" rel="noopener">Makc Criswell</a></i>. All Rights Reserved.
+    </p>
+  </footer>
 
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2
-  });
+  <script>
+    const RATE = 0.08262;
+    const YEARS = [10, 20, 30];
 
-  document.getElementById('calcForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 2
+    });
 
-    const pv = parseFloat(document.getElementById('present').value);
-    const multiplierVal = parseFloat(document.getElementById('multiplierSelect').value);
+    function fvRecurring(pmt, freq, years, rate) {
+      const r = rate / freq;
+      const n = freq * years;
+      return pmt * (Math.pow(1 + r, n) - 1) / r;
+    }
 
-    if (isNaN(pv) || isNaN(multiplierVal)) return;
+    document.getElementById("calcForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const base = pv * multiplierVal;
+      const pv = parseFloat(document.getElementById("present").value);
+      const freq = parseFloat(document.getElementById("multiplierSelect").value);
 
-    const fv10 = base * Math.pow(1 + RATE, 10);
-    const fv20 = base * Math.pow(1 + RATE, 20);
-    const fv30 = base * Math.pow(1 + RATE, 30);
+      if (isNaN(pv) || isNaN(freq) || pv <= 0 || freq <= 0) return;
 
-    document.getElementById('result').innerHTML = `
-      <strong>Estimated value if invested in the S&P 500 (VOO):</strong><br>
-      After 10 years: ${formatter.format(fv10)}<br>
-      After 20 years: ${formatter.format(fv20)}<br>
-      After 30 years: ${formatter.format(fv30)}
-    `;
-  });
-</script>
+      const [fv10, fv20, fv30] = YEARS.map(years =>
+        fvRecurring(pv, freq, years, RATE)
+      );
 
-  <h4>Info</h4>
-  <p>The W8 calculator assumes that the value inputed here is a legitimate habitiual bad spending habit. The aim of the caluclator is to show you the potential losses that would be accrued by wasting the money rather than investing it. The input assumes a bi-daily habit, and multiplies input by 178 (every-other day), before calculting compound interest from an investment. As of Decmeber 2024 the S&P 500 returned an <a href="https://financeband.com/what-is-the-average-return-on-stocks-over-30-years" target="_blank">average of 10.985%</a> a year, or, when adjusted for inflation 8.262%. These percentages assume that any dividends are automatically re-invested into the same index fund. Our calculations use the inflation adjusted value of 8.262%.</p>
-  <p>Albert Eistein was <a href="https://www.inc.com/jim-schleckser/why-einstein-considered-compound-interest-most-powerful-force-in-universe.html" target="_blank">rumoured</a> to have called compounding interest "The Eighth Wonder of the World". Even if this is not true, it is true that Albert Einstein, Benjamin Franklin and plenty of other brilliant historical figures have recognized the value of frugality, saving, and investing as means to builidng true finaincial independance and wealth.</p>
- </body>
- <footer>
-  <p>&#169; Copyright - 2025-<script>document.write(/\d{4}/.exec(Date())[0])</script>, <i><a href="https://makc.co" target="_blank">Makc Criswell</a></i>.</p>
-  <p>All Rights Reserved.</p>
-</footer>
+      document.getElementById("result").innerHTML = `
+        If you invested that money instead (reinvesting dividends):<br><br>
+        After 10 years: <strong>${formatter.format(fv10)}</strong><br>
+        After 20 years: <strong>${formatter.format(fv20)}</strong><br>
+        After 30 years: <strong>${formatter.format(fv30)}</strong>
+      `;
+    });
+  </script>
+</body>
 </html>
