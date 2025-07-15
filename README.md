@@ -1,4 +1,4 @@
-# W8: The Wonder 8 Calculator
+# W8: [The Wonder 8 Calculator](https://wonder8.app)
 Tired of dropping $10 on a cheeseburger for no good reason? Or $4 on a White Monster or that fancy coffee?
 
 The W8 Calculator shows you exactly how much those little habits are costing you—day by day, month by month, year by year.
