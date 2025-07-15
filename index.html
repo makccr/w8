@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-9414946309586484" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <title>W8 - Potential Lost to Compound Growth Calculator</title>
 </head>
 
 <body>
   <header>
-    <img src="/src/img/w8-dark.png" alt="W8 Logo" class="header-logo" />
+    <img src="src/img/w8-dark.png" alt="W8 Logo" class="header-logo-light" />
+    <img src="src/img/w8-light.png" alt="W8 Logo" class="header-logo-dark" />
   </header>
 
   <p id="tagline">
@@ -21,7 +22,7 @@
   <form id="calcForm">
     <label class="currency">
       <h3>How much are you spending?</h3>
-      <input type="number" id="present" step="0.01" min="0" required />
+      <input type="number" id="present" step="0.01" min="0" required placeholder="$13.50" />
     </label>
 
     <label>
@@ -34,7 +35,7 @@
         <option value="1">Yearly</option>
       </select>
     </label>
-
+    
     <button type="submit">Calculate</button>
   </form>
 
@@ -79,7 +80,7 @@
       );
 
       document.getElementById("result").innerHTML = `
-        If you invested that money instead (reinvesting dividends):<br><br>
+        <h3>Estimated value if you had invested instead:<h3><br>
         After 10 years: <strong>${formatter.format(fv10)}</strong><br>
         After 20 years: <strong>${formatter.format(fv20)}</strong><br>
         After 30 years: <strong>${formatter.format(fv30)}</strong>

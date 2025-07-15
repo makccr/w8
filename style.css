@@ -19,11 +19,7 @@
 * {
     margin: 0rem; 
     padding: 0rem;
-}
-
-main {
-  flex: 1;
-}
+} main { flex: 1; }
 
 body {
     background: var(--bg);
@@ -33,12 +29,19 @@ body {
     min-height: 100vh;
 }
 
-.header-logo {
+.header-logo-light {
     width: 15rem;
     height: auto;
     display: block;
     margin: 5rem auto;
-} /* Centering the logo */
+} 
+
+.header-logo-dark {
+    width: 15rem;
+    height: auto;
+    display: none;
+    margin: 5rem auto;
+} 
 
 p {
     color: var(--fg-B);
@@ -85,9 +88,9 @@ h1,h2,h3,h4,h5,h6 {
     border: 1px solid var(--mid-grey);
     border-radius: 0.5rem;
     text-align: center;
-      -webkit-appearance: none;
-       -moz-appearance: textfield;
-} /* Styling the dropdown */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
 
 #result {
     text-align: center; 
@@ -125,9 +128,8 @@ button {
     padding: 1rem 2rem;
     border-radius: 3rem; 
     transition: all .3s;
-}
+} button:hover {background-color: var(--button-hover);}
 
-button:hover {background-color: var(--button-hover);}
 button i, button i:hover{ 
   background-color: inherit; 
   transition: all .3s;
@@ -143,4 +145,19 @@ a:hover {
     color: var(--button-hover);
     text-decoration: underline 2px solid var(--button-hover);
     transition: all .3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0c0c;
+    --bg-A: #0f0f0f;
+    --fg-A: #ddd;
+    --fg-B: #ccc;
+    --mid-grey: #222; 
+    --button-color: #2b6de9;
+    --button-hover: #0056b3;
+  }
+
+  .header-logo-dark { display: block; }
+  .header-logo-light { display: none; }
 }
