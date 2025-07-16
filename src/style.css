@@ -156,8 +156,7 @@ a:hover {
     --mid-grey: #222; 
     --button-color: #2b6de9;
     --button-hover: #0056b3;
-  }
-
+  } button { color: #fff; }
   .header-logo-dark { display: block; }
   .header-logo-light { display: none; }
 }
