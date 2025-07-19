@@ -150,6 +150,15 @@ a:hover {
     transition: all .3s;
 }
 
+.footer-links {
+    margin-top: 2rem; 
+    text-transform: uppercase; 
+}
+
+.footer-links a {
+    padding: 0rem .5rem;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0c0c0c;
