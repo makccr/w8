@@ -1,3 +1,7 @@
+<a href="https://makc.co">
+    <img src="https://makc.co/images/github-header.svg" alt="MAKC lgoo" title="MAKC" align="right" height="50" />
+</a>
+
 # W8: [The Wonder 8 Calculator](https://wonder8.app)
 Tired of dropping $10 on a cheeseburger for no good reason? Or $4 on a White Monster or that fancy coffee?
 
