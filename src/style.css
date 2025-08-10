@@ -29,7 +29,14 @@ body {
     min-height: 100vh;
 }
 
-.header-logo {
+.header-logo-light {
+    width: auto;
+    height: 10rem;
+    display: none;
+    margin: 5rem auto;
+} 
+
+.header-logo-dark {
     width: auto;
     height: 10rem;
     display: block;
@@ -159,7 +166,11 @@ a:hover {
     --fg-A: #ddd;
     --fg-B: #ccc;
     --mid-grey: #222; 
-    --button-color: #2b6de9;
-    --button-hover: #0056b3;
+    --button-color: #49b4ff;
+    --button-hover: #55c9ff;
   } button { color: #fff; }
+
+  .header-logo-light { display: block; }
+  .header-logo-dark { display: none; }
+
 }
