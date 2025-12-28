@@ -159,6 +159,18 @@ a:hover {
     padding: 0rem .5rem;
 }
 
+.appsContainer {
+    align: center; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.appsContainer img {
+    display: none;
+    height: 3rem;
+    padding: .5rem;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0c0c0c;
@@ -173,4 +185,9 @@ a:hover {
   .header-logo-light { display: block; }
   .header-logo-dark { display: none; }
 
+}
+
+@media only screen and (max-width: 640px) { /* Main phone settings */ 
+
+  .appsContainer img { display: block;}
 }
