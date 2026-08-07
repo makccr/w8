@@ -2,7 +2,7 @@
     <img src="https://makc.co/images/github-header.svg" alt="MAKC lgoo" title="MAKC" align="right" height="50" />
 </a>
 
-# W8: [The W8 (Wait!) Calculator](https://wonder8.app)
+# W8: [The W8 (Wait!) Calculator](https://w8.makc.co)
 Tired of dropping $10 on a cheeseburger for no good reason? Or $4 on a White Monster or that fancy coffee?
 
 The W8 Calculator shows you exactly how much those little habits are costing you—day by day, month by month, year by year.
