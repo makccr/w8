@@ -190,5 +190,5 @@ a:hover {
 
 @media only screen and (max-width: 640px) { /* Main phone settings */ 
 
-  .appsContainer img { display: block;}
+  .appsContainer img { display: none;}
 }
